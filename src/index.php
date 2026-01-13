@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>PHP + Tailwind + DaisyUI</title>
+    <link href="/assets/css/output.css" rel="stylesheet">
+</head>
+<body class="p-10">
+
+    <div class="card w-96 bg-base-100 shadow-xl">
+        <div class="card-body">
+            <h2 class="card-title">¡Funciona! 🚀</h2>
+            <p>PHP + MySQL + Tailwind + DaisyUI</p>
+            <div class="card-actions justify-end">
+                <button class="btn btn-primary">OK</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
