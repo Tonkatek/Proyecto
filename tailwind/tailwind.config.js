@@ -1,6 +1,11 @@
 module.exports = {
-  plugins: {
-    tailwindcss: {},
-    autoprefixer: {},
+  content: [
+    "/app/src/**/*.{html,php,js}",
+  ],
+  theme: {
+    extend: {},
   },
+  plugins: [
+    require('daisyui'),
+  ],
 }

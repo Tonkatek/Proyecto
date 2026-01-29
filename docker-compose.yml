@@ -15,6 +15,8 @@ services:
       - ./mysql/bbdd.sql:/docker-entrypoint-initdb.d/init.sql
     ports:
       - "3306:3306"
+    networks:
+      - tfg_network
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
@@ -28,3 +30,40 @@ services:
       PMA_PASSWORD: tonkatekAdmin
     ports:
       - "8080:80"
+    networks:
+      - tfg_network
+
+  web:
+    build:
+      context: ./php
+      dockerfile: Dockerfile
+    container_name: apache_php_server
+    restart: always
+    depends_on:
+      - db
+    volumes:
+      - ./src:/var/www/html
+    ports:
+      - "80:80"
+    networks:
+      - tfg_network
+
+  tailwind:  # ← Debe estar al mismo nivel que db, phpmyadmin, web
+    build:
+      context: ./tailwind
+      dockerfile: Dockerfile
+    container_name: tailwind_watcher
+    restart: always
+    volumes:
+      - ./src:/app/src:rw
+      - ./tailwind/tailwind.config.js:/app/tailwind.config.js:ro
+    working_dir: /app
+    command: sh -c "npm run build && npm run watch"
+    stdin_open: true
+    tty: true
+    networks:
+      - tfg_network
+
+networks:
+  tfg_network:
+    driver: bridge
