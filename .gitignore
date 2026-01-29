@@ -1,16 +1,12 @@
 # Carpeta de datos de MySQL
 data/
 
-# CSS compilado de Tailwind
-src/css/output.css
-
-# Node modules
-node_modules/
-tailwind/node_modules/
-package-lock.json
-
 # Archivos de Docker
 *.log
+
+# Node modules (si usas Node/Tailwind)
+node_modules/
+package-lock.json
 
 # Archivos de sistema
 .DS_Store
