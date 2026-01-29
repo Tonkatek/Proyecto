@@ -1,0 +1,78 @@
+# Carpeta de datos de MySQL
+data/
+
+# CSS compilado de Tailwind
+src/css/output.css
+
+# Node modules
+node_modules/
+tailwind/node_modules/
+package-lock.json
+
+# Archivos de Docker
+*.log
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# IDEs y editores
+.vscode/
+.idea/
+*.sublime-*
+
+# Variables de entorno
+.env
+.env.local
+.env.*.local
+
+# Archivos temporales de PHP
+*.cache
+vendor/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+# Carpeta de datos de MySQL
+data/
+
+# Archivos de Docker
+*.log
+
+# Node modules (si usas Node/Tailwind)
+node_modules/
+package-lock.json
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# IDEs y editores
+.vscode/
+.idea/
+*.sublime-*
+
+# Variables de entorno
+.env
+.env.local
+.env.*.local
+
+# Archivos temporales de PHP
+*.cache
+vendor/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

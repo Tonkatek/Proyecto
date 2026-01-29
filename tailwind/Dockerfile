@@ -1,8 +1,17 @@
-FROM node:20
+FROM node:18-alpine
 
 WORKDIR /app
 
-COPY package.json package-lock.json* ./
+# Copiar package.json primero
+COPY package.json ./
+
+# Instalar dependencias
 RUN npm install
 
-CMD ["npm", "run", "dev"]
+# Copiar configuraciones
+COPY tailwind.config.js postcss.config.js ./
+
+# Crear directorio de salida
+RUN mkdir -p /app/src/css
+
+CMD ["sh", "-c", "npm run watch"]
