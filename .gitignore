@@ -2,7 +2,7 @@
 data/
 
 # CSS compilado de Tailwind
-src/css/output.css
+public/css/output.css
 
 # Node modules
 node_modules/
