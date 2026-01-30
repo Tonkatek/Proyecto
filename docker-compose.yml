@@ -17,13 +17,20 @@ services:
       - "3306:3306"
     networks:
       - tfg_network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-ptonkatekAdmin"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     container_name: phpmyadmin
     restart: always
     depends_on:
-      - db
+      db:
+        condition: service_healthy
     environment:
       PMA_HOST: db
       PMA_USER: root
@@ -40,22 +47,23 @@ services:
     container_name: apache_php_server
     restart: always
     depends_on:
-      - db
+      db:
+        condition: service_healthy
     volumes:
-      - ./src:/var/www/html
+      - ./public:/var/www/html
     ports:
       - "80:80"
     networks:
       - tfg_network
 
-  tailwind:  # ← Debe estar al mismo nivel que db, phpmyadmin, web
+  tailwind:
     build:
       context: ./tailwind
       dockerfile: Dockerfile
     container_name: tailwind_watcher
     restart: always
     volumes:
-      - ./src:/app/src:rw
+      - ./public:/app/src:rw
       - ./tailwind/tailwind.config.js:/app/tailwind.config.js:ro
     working_dir: /app
     command: sh -c "npm run build && npm run watch"

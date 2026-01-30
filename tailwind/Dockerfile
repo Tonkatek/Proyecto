@@ -12,6 +12,6 @@ RUN npm install
 COPY tailwind.config.js postcss.config.js ./
 
 # Crear directorio de salida
-RUN mkdir -p /app/src/css
+RUN mkdir -p /app/public/css
 
 CMD ["sh", "-c", "npm run watch"]
