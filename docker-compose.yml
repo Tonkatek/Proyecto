@@ -65,7 +65,8 @@ services:
     container_name: tailwind_watcher
     restart: always
     volumes:
-      - ./public:/app/src:rw
+      - ./public:/app/src:rw              # ← Monta public en /app/src
+      - ./src:/app/src-backend:rw         # ← Añade también src si tienes vistas ahí
       - ./tailwind/tailwind.config.js:/app/tailwind.config.js:ro
     working_dir: /app
     command: sh -c "npm run build && npm run watch"
