@@ -6,10 +6,7 @@
     <link href="./css/output.css" rel="stylesheet">
 </head>
 <body class="p-10">
-    <?php
-        require_once "/var/www/src/libs/config.php";
-        $claseConfig = Config::getInstance();
-        print_r($claseConfig->get("db"))
+    <?php 
     ?>
     <div class="card w-96 bg-base-100 shadow-xl">
         <div class="card-body">
