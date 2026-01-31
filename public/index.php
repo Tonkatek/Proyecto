@@ -7,9 +7,15 @@
 </head>
 <body class="p-10">
     <?php
-        require_once "/var/www/src/libs/config.php";
-        $claseConfig = Config::getInstance();
-        print_r($claseConfig->get("db"))
+        require_once "/var/www/src/libs/model.php";
+        try {
+            $claseConfig = new Model();
+            
+        } catch (\Throwable $th) {
+            echo "algo ha salido mal";
+        }
+
+        echo "Ha salido todo bien"
     ?>
     <div class="card w-96 bg-base-100 shadow-xl">
         <div class="card-body">
