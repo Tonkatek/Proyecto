@@ -9,7 +9,7 @@
          * @use ""
          */
         private function __construct() {
-            $this->params = require __DIR__ . '../../config/params.php';
+            $this->params = require "/var/www/config/params.php";
         }
 
         public static function getInstance() {
