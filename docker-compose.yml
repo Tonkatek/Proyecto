@@ -47,7 +47,8 @@ services:
     container_name: apache_php_server
     restart: always
     depends_on:
-      - db
+      db:
+        condition: service_healthy
     volumes:
       - ./public:/var/www/html           # ← Solo public es accesible
       - ./src:/var/www/src:ro             # ← src en modo lectura
